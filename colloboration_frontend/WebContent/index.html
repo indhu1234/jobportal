@@ -16,7 +16,7 @@
 	type="text/javascript"></script>
 	
 </head>
-<body ng-app="app">
+<body data-ng-app="app">
 
 <header>
 		<nav class="navbar navbar-default">
@@ -35,20 +35,20 @@
 	<div  class="collapse navbar-collapse" id="collapse-example">
 	<ul class="nav navbar-nav">
 
-	<li><a href="#/register" ng-hide="loggedInUser.firstname">Sign UP</a></li>
-	<li><a href="#/login" ng-hide="loggedInUser.firstname">Sign In</a></li>
-	<li><a href="" ng-show="loggedInUser.firstname">Welcome {{loggedInUser.firstname}}&nbsp; {{loggedInUser.lastname}}</a></li>
+	<li><a href="#/register" data-ng-hide="loggedInUser.firstname">Sign UP</a></li>
+	<li><a href="#/login" data-ng-hide="loggedInUser.firstname">Sign In</a></li>
+	<li><a href="" data-ng-show="loggedInUser.firstname">Welcome {{loggedInUser.firstname}}&nbsp; {{loggedInUser.lastname}}</a></li>
 	
 	<li class="dropdown"><a href="" class="dropdown-toggle"
-						data-toggle="dropdown" ng-show="loggedInUser.firstname">Job<b
+						data-toggle="dropdown" data-ng-show="loggedInUser.firstname">Job<b
 							class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="#/addjob" ng-show="loggedInUser.role=='ADMIN'">Add Job</a></li>
+							<li><a href="#/addjob" data-ng-show="loggedInUser.role=='ADMIN'">Add Job</a></li>
 							<li><a href="#/getalljobs">All Jobs</a></li>
 						</ul></li>
 	
 	<li class="dropdown"><a href="" class="dropdown-toggle"
-						data-toggle="dropdown" ng-show="loggedInUser.firstname">Blog<b
+						data-toggle="dropdown" data-ng-show="loggedInUser.firstname">Blog<b
 						class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="#/addblog">Add Blog</a></li>
@@ -56,7 +56,7 @@
 							</ul></li>
 							
 		<li class="dropdown"><a href="" class="dropdown-toggle"
-						data-toggle="dropdown" ng-show="loggedInUser.firstname">Friend<b
+						data-toggle="dropdown" data-ng-show="loggedInUser.firstname">Friend<b
 						class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="#/suggestedusers">Suggested Users</a></li>
@@ -65,12 +65,12 @@
 							</ul></li>					
 							
 	<li class="dropdown" >
-<a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show="loggedInUser.firstname"> 
+<a href="" class="dropdown-toggle" data-toggle="dropdown" data-ng-show="loggedInUser.firstname"> 
 <span class="glyphicon glyphicon-globe" > 
-  <span class="rw-number-notification" ng-if="notificationsCount>0">{{notificationsCount}}</span></span></a>
+  <span class="rw-number-notification" data-ng-if="notificationsCount>0">{{notificationsCount}}</span></span></a>
    <ul class="dropdown-menu" >
   <span class="dropdown-content">
-   <li ng-repeat="n in notifications">
+   <li data-ng-repeat="n in notifications">
      <a href="#/getnotification/{{n.id}}"> Blog titled <b>{{n.blogTitle}}</b> approval status is updated</a>
      <hr>
    </li>
@@ -78,20 +78,20 @@
    </ul>
 </li>						
 							
-	<li><a href="#/editprofile" ng-show="loggedInUser.firstname">My Profile</a></li>
-	<li><a href="#/uploadprofilepic" ng-show="loggedInUser.firstname"><img src="http://localhost:8084/colloboration_middleware/getimage/{{loggedInUser.email}}"
+	<li><a href="#/editprofile" data-ng-show="loggedInUser.firstname">My Profile</a></li>
+	<li><a href="#/uploadprofilepic" data-ng-show="loggedInUser.firstname"><img src="http://localhost:8084/colloboration_middleware/getimage/{{loggedInUser.email}}"
 	alt="upload picture" width="40px" height="40px"></a></li>
 	
 	
-  <li><a href="#/chat" ng-show="loggedInUser.firstname">chat </a></li>
+  <li><a href="#/chat" data-ng-show="loggedInUser.firstname">chat </a></li>
 
-	<li><a href="" ng-click="logout()" ng-show="loggedInUser.firstname">logout</a></li>
+	<li><a href="" data-ng-click="logout()" data-ng-show="loggedInUser.firstname">logout</a></li>
 	
 	</ul>
 	</div>
 	</div></nav>
 	</header>
-	<div ng-view></div>
+	<div data-ng-view></div>
 </body>
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>

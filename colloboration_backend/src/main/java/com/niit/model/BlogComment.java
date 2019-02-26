@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="blogcomment_s180233")
+@Table(name="blogcomment_table")
 public class BlogComment {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

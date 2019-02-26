@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user_s180233")
+@Table(name="user_table")
 public class User {
 
 	@Id
@@ -21,6 +21,7 @@ public class User {
 	private String role;
 	@Column (name="online_status")
 	private boolean online;
+	
 	public String getEmail() {
 		return email;
 	}

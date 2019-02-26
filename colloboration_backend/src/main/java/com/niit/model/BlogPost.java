@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="blogpost_s180233")
+@Table(name="blogpost_table")
 public class BlogPost {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -24,6 +24,7 @@ public class BlogPost {
 	private Date postedOn;
 	private int likes;
 	private boolean approved;
+	
 	public int getId() {
 		return id;
 	}

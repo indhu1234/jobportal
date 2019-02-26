@@ -11,7 +11,7 @@ Search : <input type="text" ng-model="searchTxt">
 	</thead>
 	<tbody>
 		
-		<tr ng-repeat="job in jobs | filter:searchTxt">
+		<tr data-ng-repeat="job in jobs | filter:searchTxt">
 			<td><a>{{job.jobTitle}}</a></td>
 			<td>{{job.skillsRequired}}</td>
 			<td>{{job.postedOn | date:'medium'}}</td>

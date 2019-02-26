@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row" style="width:200px">
-		<div ng-repeat="user in suggestedUsers">
+		<div data-ng-repeat="user in suggestedUsers">
 			<div class="panel panel-info">
 				<div class="panel-heading">
 				<img src="http://localhost:8084/colloboration_middleware/getimage/{{user.email}}" height="50px" width="50px" alt="No Image">
@@ -8,7 +8,7 @@
 				<div class="panel-body">
 				<b>{{user.email}}</b><br>
 				<b>{{user.firstname}}&nbsp;{{user.lastname}}</b>
-				<button type="button" class="button button-primary" ng-click="addFriend(user)" >Add Friend</button>
+				<button type="button" class="button button-primary" data-ng-click="addFriend(user)" >Add Friend</button>
 				</div>
 			</div>
 		</div>

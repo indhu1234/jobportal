@@ -1,19 +1,19 @@
 <div id="login-box">
-<div class="error" ng-show="error.message">
+<div class="error" data-ng-show="error.message">
 <span>{{error.message}}</span>
 </div>
-<div class="msg" ng-show="successMessage">
+<div class="msg" data-ng-show="successMessage">
 <span>{{successMessage}}</span>
 </div>
-<div class="error" ng-show="errorMessage">
+<div class="error" data-ng-show="errorMessage">
 <span>{{errorMessage}}</span>
 </div>
 <div>
 <form>
 <table>
-<tr><td>Enter email		:</td><td> <input type="email" ng-model="user.email"></td></tr>
-<tr><td>Enter password	:</td><td><input type="password" ng-model="user.password"></td></tr>
-<tr><td colspan="2" align="centre"><input type="submit" value="Login" ng-click="login()"></td></tr>
+<tr><td>Enter email		:</td><td> <input type="email" data-ng-model="user.email"></td></tr>
+<tr><td>Enter password	:</td><td><input type="password" data-ng-model="user.password"></td></tr>
+<tr><td colspan="2" align="centre"><input type="submit" value="Login" data-ng-click="login()"></td></tr>
 </table>
 </form>
 </div>

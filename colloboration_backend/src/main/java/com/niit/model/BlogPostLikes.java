@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="blogpostlikes_s180233")
+@Table(name="blogpostlikes_table")
 public class BlogPostLikes {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
