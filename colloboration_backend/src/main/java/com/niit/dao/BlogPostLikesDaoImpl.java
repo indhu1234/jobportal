@@ -18,7 +18,7 @@ public class BlogPostLikesDaoImpl implements BlogPostLikesDao {
  @Autowired
  private SessionFactory sessionFactory;
  
-	public BlogPostLikes hasUserLikedPost(int postId, String email) {
+	public BlogPostLikes hasUserLikedBlogPost(int postId, String email) {
 		Session session=sessionFactory.getCurrentSession();
 		Query query=session.createQuery("from BlogPostLikes where blogPost.id=? and user.email=?");
 		query.setInteger(0, postId);
@@ -29,8 +29,8 @@ public class BlogPostLikesDaoImpl implements BlogPostLikesDao {
   
 	public BlogPost updateLikes(int postId, String email) {
 			Session session = sessionFactory.getCurrentSession();
-		BlogPostLikes blogPostLikes=hasUserLikedPost(postId, email);
-		
+		BlogPostLikes blogPostLikes=hasUserLikedBlogPost(postId, email);
+		User likedBy=(User)session.get(User.class, email);
 		BlogPost blogPost=(BlogPost)session.get(BlogPost.class, postId);
 		
 		if(blogPostLikes==null){
@@ -50,4 +50,6 @@ public class BlogPostLikesDaoImpl implements BlogPostLikesDao {
 		return blogPost;
 	}
 
-}
+	
+	}
+

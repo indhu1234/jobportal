@@ -1,14 +1,15 @@
 <h3>Job Details</h3>
 <div class="panel panel-default" style="width:200px">
 <div class="panel panel-heading">
-<strong>Job Title</strong> : {{job.jobTitle}}<br>
+<strong>Job ID</strong> : {{Job.id}} <br>
+<strong>Job Title</strong> : {{Job.jobTitle}}<br>
 <div class="panel-body">
-Job Description: {{job.jobDescription}}<br>
-Skills Required:{{job.skillsRequired}}<br>
-Years of Experience : {{job.yrsOfExp}}<br>
-Location: {{job.location}}<br>
-Salary: {{job.salary}}<br>
-Posted On {{job.postedOn | date:'medium'}}<br>
+Job Description: {{Job.jobDescription}}<br>
+Skills Required:{{Job.skillsRequired}}<br>
+Years of Experience : {{Job.yrsOfExp}}<br>
+Location: {{Job.location}}<br>
+Salary: {{Job.salary}}<br>
+Posted On {{Job.postedOn | date:'medium'}}<br>
 </div>
 </div>
 <a href="#/getalljobs">Back</a>

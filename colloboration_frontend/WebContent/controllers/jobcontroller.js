@@ -5,7 +5,7 @@
 		var id=$routeParams.id
 		if(id!=undefined){
 		JobService.getJob(id).then(function(response){
-				$scope.job=response.data
+				$scope.Job=response.data
 			},function(response){
 				if(response.status==401)
 					$location.path('/login')
@@ -14,15 +14,15 @@
 		
 		
 		JobService.getAllJobs().then(function(response){
-			$scope.jobs=response.data // Array of Jobs in JSON fmt
+			$scope.Job=response.data // Array of Jobs in JSON fmt
 		},function(response){
 			$rootScope.error=response.data //ErrorClazz
 			$location.path('/login')
 		})
 		
 		$scope.addJob = function() {
-			console.log($scope.job)
-			JobService.addJob($scope.job).then(function(response) {
+			console.log($scope.Job)
+			JobService.addJob($scope.Job).then(function(response) {
 			alert('Job details posted successfully')
 			$location.path('/getalljobs')
 		}, function(response) {

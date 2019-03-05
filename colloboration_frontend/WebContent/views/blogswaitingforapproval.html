@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<b data-ng-show="user.email!='admin@gmail.com'">You are not authorized to view blogs waiting for approval</b>
+<div data-ng-show="user.email=='admin@gmail.com'">
+<div class="panel panel-info" >
+<div class="panel-heading">
+<b>List Of Blogs waiting for Approval</b>
+</div>
+<div class="panel-body">
+<b data-ng-show="blogsWaitingForApproval.length==0">No more waiting blogs</b>
+<ul style="list-style:none">
+<li data-ng-repeat="blogPost in blogsWaitingForApproval"><!-- approved is false -->
+<!-- select * from blogpost where blogpostid=? ,blogapprovalform.html (content, approve/reject button) -->
+<a href="#/getblogwaitingforapproval/{{blogPost.blogPostId}}"><b>Blog Title : {{blogPost.blogTitle}}</b></a><br>
+<!-- blogapprovalform.html -->
+Posted On  : {{blogPost.postedOn | date:'dd-MMM-yyyy hh:mm:ss'}}<br>
+Author's Email     :{{blogPost.author.email}}<br>
+Posted By  : {{blogPost.author.firstname}} &nbsp; {{blogPost.author.lastname}}
+<hr>
+
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+</body>
+</html>

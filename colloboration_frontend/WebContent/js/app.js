@@ -35,42 +35,80 @@ app.config(function($routeProvider){
 		controller:'JobController'
 	})
 	
-		.when('/addblog',{
+		.when('/addblogpost',{
 			templateUrl:'views/blogform.html',
-			controller:'BlogController'
+			controller:'BlogPostController'
 		})
 		
 		.when('/getblogs',{
 			templateUrl:'views/bloglist.html',
-			controller:'BlogController'
+			controller:'BlogPostController'
 		})
 		
-	.when('/getblog/:id',{
-		templateUrl:'views/blogpostdetail.html',
-		controller:'BlogPostDetailController'
+	.when('/getblog/:blogPostId',{
+		templateUrl:'views/approvalform.html',
+		controller:'BlogPostController'
 	})
 	
-	.when('/getapprovalform/:id',{
-		templateUrl:'views/approvalform.html',
-		controller:'BlogPostDetailController'
+	
+	
+	.when('/blogsapproved',{
+		templateUrl:'views/bloglist.html',
+		controller:'BlogPostController'
 	})
+	
+	.when('/blogswaitingforapproval',{
+		templateUrl:'views/blogswaitingforapproval.html',
+		controller:'BlogPostController'
+	})
+	
 	.when('/getnotification/:id',{
 		templateUrl:'views/notificationdetails.html',
 		controller:'NotificationController'
 	})
-	.when('/uploadprofilepic',{
-		templateUrl:'views/uploadprofilepic.html'
+
+	/*
+	.when('/blogrejected/:id',{
+		templateUrl:'views/approvalform.html',
+		controller:'BlogPostController'
+	})*/
+	
+//	.when('/addBlog/:id',{
+//	templateUrl:'views/bloglist.html',
+	//	controller:'BlogPostController'
+	//})
+	
+	.when('/hasuserlikedblogpost/:id',{
+		templateUrl:'views/blogpostdetail.html',
+		controller:'BlogPostLikesController'
 	})
-	.when('/suggestedusers',{
-		templateUrl:'views/suggestedusers.html',
+	
+	.when('/updatelikes/:id',{
+		templateUrl:'views/blogpostdetail.html',
+		controller:'BlogPostLikesController'
+	})
+	
+	
+	.when('/addfriend/:id',{
+	templateUrl:'views/friendlist.html',
+	  controller:'FriendController'
+	})
+		.when('/updatependingrequest',{
+		templateUrl:'views/updateform.html',
 		controller:'FriendController'
 	})
-
+	
 	
 	.when('/pendingrequests',{
 		templateUrl:'views/pendingrequests.html',
 		controller:'FriendController'
 	})
+	
+	.when('/suggestedusers',{
+		templateUrl:'views/suggestedusers.html',
+		controller:'FriendController'
+	})
+
 	
 	
 	.when('/friends',{
@@ -78,6 +116,16 @@ app.config(function($routeProvider){
 		controller:'FriendController'
 	})
 
+	/*
+	.when('/getnotification/:id',{
+		templateUrl:'views/notificationdetails.html',
+		controller:'NotificationController'
+	})   */
+	.when('/uploadprofilepic',{
+		templateUrl:'views/uploadprofilepic.html'
+	})
+	
+	
 	.when('/chat',{
 		templateUrl:'views/chat.html',
 		controller:'ChatController'

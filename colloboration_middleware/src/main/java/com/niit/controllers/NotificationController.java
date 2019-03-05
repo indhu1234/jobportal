@@ -20,25 +20,25 @@ import com.niit.model.Notification;
 public class NotificationController {
 	@Autowired
 private NotificationDao notificationDao;
-	@RequestMapping(value="/getallnotification",method=RequestMethod.GET)
-	public ResponseEntity<?> getNotification(HttpSession session){
+	@RequestMapping(value="/getallnotificationsnotviewed",method=RequestMethod.GET)
+	public ResponseEntity<?> getAllNotificationsNotViewed(HttpSession session){
 		String email=(String)session.getAttribute("loginId");
 		if(email==null){//Authentication
 			ErrorClazz error=new ErrorClazz(4,"Unauthrozied access.. Please login");
 			return new ResponseEntity<ErrorClazz>(error,HttpStatus.UNAUTHORIZED); //2nd callback function
 		}
-		List<Notification> notifications=notificationDao.getAllNotification(email);
+		List<Notification> notifications=notificationDao.getAllNotificationsNotViewed(email);
 		return new ResponseEntity<List<Notification>>(notifications,HttpStatus.OK);
 	}
 
-@RequestMapping(value="/updatenotification/{notificationId}",method=RequestMethod.PUT)
- public ResponseEntity<?> updateNotification(@PathVariable int notificationId,HttpSession session){
+@RequestMapping(value="/updatenotification/{id}",method=RequestMethod.PUT)
+ public ResponseEntity<?> updateNotificationViewedStatus(@PathVariable int notificationId,HttpSession session){
 	 String email=(String)session.getAttribute("loginId");
 		if(email==null){//Authentication
 			ErrorClazz error=new ErrorClazz(4,"Unauthrozied access.. Please login");
 			return new ResponseEntity<ErrorClazz>(error,HttpStatus.UNAUTHORIZED); //2nd callback function
 		}
-		notificationDao.updateViewedStatus(notificationId);//viewed=true
+		notificationDao.updateNotificationViewedStatus(notificationId);//viewed=true
 		return new ResponseEntity<Void>(HttpStatus.OK);
  }
 

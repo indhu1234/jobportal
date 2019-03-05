@@ -5,21 +5,21 @@ app.factory('FriendService',function($http){
 	var friendService={}
 	var BASE_URL = "http://localhost:8084/colloboration_middleware"
 	
-		friendService.getSuggestedUsers=function(){
+		friendService.getSuggestedUsersList=function(){
 		return $http.get(BASE_URL+ "/suggestedusers")
 	}
 	
 
-	friendService.addFriend=function(user){
+	friendService.addFriendRequest=function(user){
 		return $http.post(BASE_URL + "/addfriend",user)
 	}
 	
-	friendService.getPendingRequests=function(){
+	friendService.getAllPendingRequests=function(){
 		return $http.get(BASE_URL + "/pendingrequests")
 	}
 	
 
-	friendService.updateFriendRequest=function(friendRequest){
+	friendService.updatePendingRequest=function(friendRequest){
 		return $http.put(BASE_URL + "/updatependingrequest",friendRequest)
 		
 	}

@@ -17,16 +17,17 @@ public class NotificationDaoImpl implements NotificationDao{
 	@Autowired
 private SessionFactory sessionFactory;
 	//select * from notification where email=? and viewed=0
-	public List<Notification> getAllNotification(String email) {
+	public List<Notification> getAllNotificationsNotViewed(String email) {
 	Session session=sessionFactory.getCurrentSession();
 	Query query=session.createQuery("from Notification where email=? and viewed=0");
 	query.setString(0, email);
-	return (List<Notification>)query.list();
+	List<Notification> notificationsNotViewed=query.list();
+	return notificationsNotViewed;
 	
 	}
 
 	//update notification set viewed=1 where id=?
-	public void updateViewedStatus(int notificationId) {
+	public void updateNotificationViewedStatus(int notificationId) {
 		Session session=sessionFactory.getCurrentSession();
 		Notification notification=(Notification)session.get(Notification.class, notificationId);
 		notification.setViewed(true);
@@ -39,6 +40,14 @@ private SessionFactory sessionFactory;
 		Notification notification=(Notification)session.get(Notification.class, id);
 		return notification;
 	}
+
+	@Override
+	public void addNotification(Notification notification) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.getCurrentSession();
+		session.save(notification);
+	}
+
 
 }
 

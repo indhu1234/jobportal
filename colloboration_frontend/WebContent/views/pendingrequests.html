@@ -1,7 +1,7 @@
 <table class="table table-striped">
 <span data-ng-if="friendRequests.length==0">No Pending Requests</span>
 <div class="container" data-ng-hide="friendRequests.length==0">
-<tr data-ng-repeat="friendRequest in friendRequests">
+<tr data-ng-repeat="friendRequest in Friend">
 <td>{{friendRequest.fromId}}</td>
 <td><img 
 src="http://localhost:8084/colloboration_middleware/getimage/{{friendRequest.fromId}}" 

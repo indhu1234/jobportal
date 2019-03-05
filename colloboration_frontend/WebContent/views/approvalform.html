@@ -10,9 +10,9 @@
 		</div>
 	</div>
 </div>
-<button type="button" class="btn btn-outline btn-success" data-ng-click="blogApproved(blogPost.id)" data-ng-hide="isRejected">Accept</button>&nbsp;
+<button type="button" class="btn btn-outline btn-success" data-ng-click="approvedblogpost(blogPost.id)" data-ng-hide="isRejected">Accept</button>&nbsp;
 <button type="button" class="btn btn-outline btn-warning" data-ng-click="showRejectionTxt()">Reject</button>
 <form data-ng-show="isRejected">
 <textarea rows="2" cols="10" data-ng-model="rejectionReason"></textarea>
-<button type="button" class="btn btn-outline btn-warning" data-ng-click="blogRejected(blogPost.id,rejectionReason)">Submit</button>
+<button type="button" class="btn btn-outline btn-warning" data-ng-click="rejectblogpost(blogPost.id,rejectionReason)">Submit</button>
 </form>

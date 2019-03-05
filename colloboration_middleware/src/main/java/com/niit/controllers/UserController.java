@@ -28,6 +28,7 @@ public class UserController {
 			ErrorClazz error=new ErrorClazz(2,"Email id already exists...please enter different email id");
 			return new ResponseEntity<ErrorClazz>(error,HttpStatus.CONFLICT);
 		}
+		
 		try {
 			userDao.registration(user);
 			return new ResponseEntity<User>(user,HttpStatus.CREATED);
@@ -90,6 +91,11 @@ public class UserController {
 			ErrorClazz error=new ErrorClazz(3,"Unauthorized access");
 			return new ResponseEntity<ErrorClazz>(error,HttpStatus.UNAUTHORIZED);
 		}
+		 if(!userDao.isUpdatedPhonenumberUnique(user.getPhonenumber(), email)){
+				ErrorClazz errorClazz=new ErrorClazz(1,"Phone number already exists.. pls enter another phonenumber");
+				return new ResponseEntity<ErrorClazz>(errorClazz,HttpStatus.INTERNAL_SERVER_ERROR);
+		 }
+		
 		userDao.update(user);
 		return new ResponseEntity<User>(user,HttpStatus.OK);
 	}

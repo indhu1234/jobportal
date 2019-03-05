@@ -39,7 +39,7 @@ public class JobController {
 				return new ResponseEntity<ErrorClazz>(error,HttpStatus.UNAUTHORIZED);
 		}
 		User user=userDao.getUser(email);
-		if(!user.getRole().equals("ADMIN")) {
+		if(!user.getEmail().equals("admin@gmail.com")) {
 			ErrorClazz error=new ErrorClazz(5,"Access Denied");
 			return new ResponseEntity<ErrorClazz>(error,HttpStatus.UNAUTHORIZED);
 
@@ -55,12 +55,15 @@ public class JobController {
 	
 		}
 		
-			
+		//return new ResponseEntity<Job>(job,HttpStatus.OK); //- Success function 1 in client side will get executed,200	
 	}
 
        @RequestMapping(value="/getalljobs",method=RequestMethod.GET)	
 	   public ResponseEntity<?> getAllJobs(HttpSession session){
-    	String email=(String)session.getAttribute("loginId");
+    	   System.out.println("Session Id is " +session.getId());
+    		System.out.println("Session createdTime " + session.getCreationTime());
+    		System.out.println("Session Attribute loginId value is "+ session.getAttribute("loginId"));
+    	   String email=(String)session.getAttribute("loginId");
 		if(email==null){//not logged in [Authenticated]
 			ErrorClazz error=new ErrorClazz(4,"Unauthrozied access.. Please login");
 			return new ResponseEntity<ErrorClazz>(error,HttpStatus.UNAUTHORIZED); //login page

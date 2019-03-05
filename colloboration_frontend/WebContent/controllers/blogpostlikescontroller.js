@@ -1,7 +1,8 @@
 /**
- * BlogPostDetailController
+ * 
  */
-app.controller('BlogPostDetailController',function($scope,$routeParams,$location,BlogService,$sce,$rootScope){
+
+app.controller('BlogPostLikesController',function($scope,$routeParams,$location,BlogService,$sce,$rootScope){
 	var id=$routeParams.id;
 	$scope.isRejected=false;
 	alert('blogpost id is ' + id)

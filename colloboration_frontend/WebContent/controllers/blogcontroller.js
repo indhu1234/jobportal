@@ -1,11 +1,11 @@
 /**
  * BlogController
  */
-app.controller('BlogController',function($scope,$location,BlogService,$rootScope,$sce){
+app.controller('BlogPostController',function($scope,$location,BlogService,$rootScope,$sce){
 
 
-		$scope.addBlog=function(blog){
-		BlogService.addBlog(blog).then(function(response){
+		$scope.addBlogPost=function(blog){
+		BlogService.addBlogPost(blog).then(function(response){
 			alert('Blog is added successfully and it is waiting for approval')
 			$location.path('/home')
 		},function(response){
@@ -17,10 +17,10 @@ app.controller('BlogController',function($scope,$location,BlogService,$rootScope
 		
 
 		//List of blogs waiting for approval
-		if($rootScope.loggedInUser.role=='ADMIN'){
+		if($rootScope.loggedInUser.email=='admin@gmail.com'){
 		BlogService.getBlogsWaitingForApproval().then(
 				function(response){
-					$scope.blogsWaitingForApproval=response.data //select * from blogpost where approved=false
+					$scope.blogswaitingforapproval=response.data //select * from blogpost where approved=false
 				},
 				function(response){
 					$rootScope.error=response.data
@@ -31,8 +31,9 @@ app.controller('BlogController',function($scope,$location,BlogService,$rootScope
 		
 
 		//List of blogs approved
-		BlogService.getApprovedBlogs().then(function(response){
-			$scope.blogsApproved=response.data //select * from blogpost where approved=true
+		BlogService.getBlogsApproved().then(function(response){
+	
+			$scope.approvedblogpost=response.data //select * from blogpost where approved=true
 			
 			},
 			function(response){
@@ -62,7 +63,7 @@ app.controller('BlogController',function($scope,$location,BlogService,$rootScope
 			if(blog.blogContent==undefined)
 				blog.blogContent=""
 			blog.blogContent=blog.blogContent + $scope.heading
-		}
+		}   
 		
 
 })
